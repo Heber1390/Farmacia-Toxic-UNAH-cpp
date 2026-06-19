@@ -63,8 +63,47 @@ void menuVentaControlada() {
 }
 
 void menuInventario() {
-    cout << "Modulo inventario pendiente de desarrollo.\n";
+    int opcionInv, cantidad;
+
+    cout << "\n===== INVENTARIO ACTUAL =====\n";
+    cout << "1. Algodones:     " << cantidadAlgodones << endl;
+    cout << "2. Gasas:         " << cantidadGasas << endl;
+    cout << "3. Povidine:      " << cantidadPovidine << endl;
+    cout << "4. Panadol:       " << cantidadPanadol << endl;
+    cout << "5. Acetaminofen:  " << cantidadAcetaminofen << endl;
+    cout << "6. Vitaminas B:   " << cantidadVitaminasB << endl;
+
+    cout << "\nSeleccione producto para ingresar inventario: ";
+    cin >> opcionInv;
+
+    cout << "Cantidad a ingresar: ";
+    cin >> cantidad;
+
+    if (cantidad <= 0) {
+        cout << "Cantidad no valida.\n";
+        return;
+    }
+
+    switch (opcionInv) {
+        case 1: cantidadAlgodones += cantidad; break;
+        case 2: cantidadGasas += cantidad; break;
+        case 3: cantidadPovidine += cantidad; break;
+        case 4: cantidadPanadol += cantidad; break;
+        case 5: cantidadAcetaminofen += cantidad; break;
+        case 6: cantidadVitaminasB += cantidad; break;
+        default:
+            cout << "Opcion no valida.\n";
+            return;
+    }
+
+    cout << "Inventario actualizado correctamente.\n";
 }
+
+/*
+git add .
+git commit -m "Agrega modulo de inventario"
+git push origin feature/inventario
+*/
 
 void mostrarFactura() {
     cout << "Modulo factura pendiente de desarrollo.\n";
@@ -76,3 +115,4 @@ git commit -m "Crea estructura base del sistema farmacia"
 git push origin develop
 
 */
+
