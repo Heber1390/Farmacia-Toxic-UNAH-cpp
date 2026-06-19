@@ -51,8 +51,55 @@ int main() {
 
 // Módulos iniciales temporales
 void registrarCliente() {
-    cout << "Modulo cliente pendiente de desarrollo.\n";
+    cout << "\n===== REGISTRO DEL CLIENTE =====\n";
+
+    cout << "Ingrese el nombre del cliente: ";
+    cin.ignore();
+    getline(cin, nombreCliente);
+
+    do {
+        cout << "Ingrese la edad del cliente: ";
+        cin >> edadCliente;
+
+        if (edadCliente < 18) {
+            cout << "El cliente debe ser mayor de edad.\n";
+        } else if (edadCliente > 110) {
+            cout << "Edad no valida.\n";
+        }
+
+    } while (edadCliente < 18 || edadCliente > 110);
+
+    do {
+        cout << "Ingrese genero del cliente (M/F): ";
+        cin >> generoCliente;
+
+        if (generoCliente != "M" && generoCliente != "F" &&
+            generoCliente != "m" && generoCliente != "f") {
+            cout << "Genero no valido.\n";
+        }
+
+    } while (generoCliente != "M" && generoCliente != "F" &&
+             generoCliente != "m" && generoCliente != "f");
+
+    do {
+        cout << "Ingrese puntos acumulados del cliente (0 - 500): ";
+        cin >> puntosAcumulados;
+
+        if (puntosAcumulados < 0 || puntosAcumulados > 500) {
+            cout << "Los puntos deben estar entre 0 y 500.\n";
+        }
+
+    } while (puntosAcumulados < 0 || puntosAcumulados > 500);
+
+    cout << "\nCliente registrado correctamente.\n";
 }
+
+/*
+Estudiante 1 — Rama feature/clientes
+git add .
+git commit -m "Agrega modulo de registro de clientes"
+git push origin feature/clientes
+*/
 
 void menuVentaLibre() {
     cout << "Modulo venta libre pendiente de desarrollo.\n";
