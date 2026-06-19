@@ -55,7 +55,57 @@ void registrarCliente() {
 }
 
 void menuVentaLibre() {
-    cout << "Modulo venta libre pendiente de desarrollo.\n";
+    int opcionVL, cantidad;
+
+    cout << "\n===== MEDICAMENTOS DE VENTA LIBRE =====\n";
+    cout << "1. Algodones - L.50 - Disponible: " << cantidadAlgodones << endl;
+    cout << "2. Gasas     - L.80 - Disponible: " << cantidadGasas << endl;
+    cout << "3. Povidine  - L.40 - Disponible: " << cantidadPovidine << endl;
+    cout << "Seleccione producto: ";
+    cin >> opcionVL;
+
+    cout << "Ingrese cantidad: ";
+    cin >> cantidad;
+
+    if (cantidad <= 0) {
+        cout << "Cantidad no valida.\n";
+        return;
+    }
+
+    switch (opcionVL) {
+        case 1:
+            if (cantidad <= cantidadAlgodones) {
+                cantidadAlgodones -= cantidad;
+                totalVentaLibre += cantidad * 50;
+                cout << "Algodones agregados correctamente.\n";
+            } else {
+                cout << "No hay suficiente inventario.\n";
+            }
+            break;
+
+        case 2:
+            if (cantidad <= cantidadGasas) {
+                cantidadGasas -= cantidad;
+                totalVentaLibre += cantidad * 80;
+                cout << "Gasas agregadas correctamente.\n";
+            } else {
+                cout << "No hay suficiente inventario.\n";
+            }
+            break;
+
+        case 3:
+            if (cantidad <= cantidadPovidine) {
+                cantidadPovidine -= cantidad;
+                totalVentaLibre += cantidad * 40;
+                cout << "Povidine agregado correctamente.\n";
+            } else {
+                cout << "No hay suficiente inventario.\n";
+            }
+            break;
+
+        default:
+            cout << "Opcion no valida.\n";
+    }
 }
 
 void menuVentaControlada() {
