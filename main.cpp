@@ -106,8 +106,64 @@ void menuVentaLibre() {
 }
 
 void menuVentaControlada() {
-    cout << "Modulo venta controlada pendiente de desarrollo.\n";
+    int opcionVC, cantidad;
+
+    cout << "\n===== MEDICAMENTOS DE VENTA CONTROLADA =====\n";
+    cout << "1. Panadol       - L.30  - Disponible: " << cantidadPanadol << endl;
+    cout << "2. Acetaminofen  - L.60  - Disponible: " << cantidadAcetaminofen << endl;
+    cout << "3. Vitaminas B   - L.200 - Disponible: " << cantidadVitaminasB << endl;
+    cout << "Seleccione producto: ";
+    cin >> opcionVC;
+
+    cout << "Ingrese cantidad: ";
+    cin >> cantidad;
+
+    if (cantidad <= 0) {
+        cout << "Cantidad no valida.\n";
+        return;
+    }
+
+    switch (opcionVC) {
+        case 1:
+            if (cantidad <= cantidadPanadol) {
+                cantidadPanadol -= cantidad;
+                totalVentaControlada += cantidad * 30;
+                cout << "Panadol agregado correctamente.\n";
+            } else {
+                cout << "No hay suficiente inventario.\n";
+            }
+            break;
+
+        case 2:
+            if (cantidad <= cantidadAcetaminofen) {
+                cantidadAcetaminofen -= cantidad;
+                totalVentaControlada += cantidad * 60;
+                cout << "Acetaminofen agregado correctamente.\n";
+            } else {
+                cout << "No hay suficiente inventario.\n";
+            }
+            break;
+
+        case 3:
+            if (cantidad <= cantidadVitaminasB) {
+                cantidadVitaminasB -= cantidad;
+                totalVentaControlada += cantidad * 200;
+                cout << "Vitaminas B agregadas correctamente.\n";
+            } else {
+                cout << "No hay suficiente inventario.\n";
+            }
+            break;
+
+        default:
+            cout << "Opcion no valida.\n";
+    }
 }
+
+/*
+git add .
+git commit -m "Agrega modulo de venta controlada"
+git push origin feature/venta-controlada
+*/
 
 void menuInventario() {
     cout << "Modulo inventario pendiente de desarrollo.\n";
