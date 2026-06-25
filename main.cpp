@@ -115,4 +115,3 @@ git commit -m "Crea estructura base del sistema farmacia"
 git push origin develop
 
 */
-
