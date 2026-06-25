@@ -220,8 +220,34 @@ void menuInventario() {
 }
 
 void mostrarFactura() {
-    cout << "Modulo factura pendiente de desarrollo.\n";
+    float subtotal = totalVentaLibre + totalVentaControlada;
+    float impuesto = subtotal * 0.15;
+    float descuento = 0;
+
+    if (puntosAcumulados >= 100) {
+        descuento = subtotal * 0.05;
+    }
+
+    if (edadCliente >= 60) {
+        descuento += subtotal * 0.10;
+    }
+
+    float totalPagar = subtotal + impuesto - descuento;
+
+    cout << "\n===== FACTURA FINAL =====\n";
+    cout << "Cliente: " << nombreCliente << endl;
+    cout << "Edad: " << edadCliente << endl;
+    cout << "Genero: " << generoCliente << endl;
+    cout << "Puntos: " << puntosAcumulados << endl;
+
+    cout << "\nSubtotal venta libre:       L." << totalVentaLibre << endl;
+    cout << "Subtotal venta controlada:  L." << totalVentaControlada << endl;
+    cout << "Subtotal general:           L." << subtotal << endl;
+    cout << "Impuesto 15%:               L." << impuesto << endl;
+    cout << "Descuento aplicado:         L." << descuento << endl;
+    cout << "Total a pagar:              L." << totalPagar << endl;
 }
+
 
 /*
 git add .
